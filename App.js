@@ -2,10 +2,11 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
-
-import ListScreen from './ListScreen';
-import DetailScreen from './DetailScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+
+import ListScreen from './src/containers/ListScreen';
+import DetailScreen from './src/containers/DetailScreen';
 
 const Stack = createSharedElementStackNavigator();
 
@@ -37,8 +38,7 @@ function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
-
   );
 }
 
-export default App;
+export default gestureHandlerRootHOC(App);
